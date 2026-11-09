@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+*.bak-*
+poem-films/
+generated-images/
+generated-videos/
+.env
+.env.*
+*.log

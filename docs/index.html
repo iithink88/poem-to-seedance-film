@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>古诗词 AI 短片 · poem-to-seedance-film DEMO</title>
+<meta name="description" content="输入一句古诗，全自动生成东方美学 AI 短片。30 秒《如梦令·常记溪亭日暮》成片演示。">
+<style>
+  :root{
+    --bg:#faf8f4; --surface:#ffffff; --ink:#2b2925; --muted:#6f6a61;
+    --line:#e7e1d7; --gold:#b48a52; --gold-soft:#f3ead9; --green:#3f5745;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+    line-height:1.75;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{padding:64px 0 40px;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#fffdf8 0%,var(--bg) 100%)}
+  .kicker{display:inline-block;font-size:12px;letter-spacing:.18em;color:var(--gold);
+    border:1px solid var(--gold);border-radius:999px;padding:4px 14px;margin-bottom:20px}
+  h1{font-family:"Songti SC","SimSun","Noto Serif CJK SC",serif;
+    font-size:clamp(30px,5vw,48px);font-weight:600;letter-spacing:.02em;margin:0 0 14px}
+  .lead{font-size:17px;color:var(--muted);max-width:720px;margin:0}
+  .tags{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-size:13px;background:var(--gold-soft);color:#7a5c2e;
+    border-radius:6px;padding:4px 11px}
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  h2{font-family:"Songti SC","SimSun","Noto Serif CJK SC",serif;
+    font-size:25px;font-weight:600;margin:0 0 8px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 22px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    overflow:hidden;box-shadow:0 6px 28px rgba(60,50,30,.05)}
+  video{display:block;width:100%;background:#1c1a17;max-height:620px}
+  .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;
+    flex-wrap:wrap;padding:14px 18px;font-size:13px;color:var(--muted)}
+  .btn{display:inline-block;text-decoration:none;background:var(--ink);color:#fff;
+    border-radius:8px;padding:9px 16px;font-size:14px;white-space:nowrap}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  figure{margin:0;background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;overflow:hidden}
+  figure img{display:block;width:100%}
+  figcaption{padding:12px 16px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+  figcaption b{color:var(--ink);font-weight:600}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .step .n{font-family:Georgia,serif;font-size:22px;color:var(--gold)}
+  .step h3{font-size:15px;margin:6px 0 6px;font-weight:600}
+  .step p{font-size:13px;color:var(--muted);margin:0}
+  table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+    border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line)}
+  th{background:#f6f2ea;font-weight:600;width:26%}
+  tr:last-child td,tr:last-child th{border-bottom:0}
+  .note{background:#fff8ea;border:1px solid #ecd9b4;border-radius:12px;
+    padding:16px 18px;font-size:14px;color:#705426}
+  footer{padding:36px 0 56px;color:var(--muted);font-size:13px}
+  a{color:#8a6428}
+  @media(max-width:760px){.grid2,.steps{grid-template-columns:1fr}header{padding-top:40px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="kicker">WORKBUDDY SKILL · DEMO</span>
+    <h1>一句古诗，一支电影级短片</h1>
+    <p class="lead">输入「把《如梦令》做成古诗词短片」，自动完成分镜、主角三视图、场景定样图、Seedance 2.5 提示词、视频生成，以及朗读、字幕、配乐与成片合成。下面是真实跑通的一次结果，未做人工修饰。</p>
+    <div class="tags">
+      <span class="tag">宋韵写实</span><span class="tag">30 秒 / 16:9</span>
+      <span class="tag">主角三视图一致性</span><span class="tag">六镜连贯叙事</span>
+      <span class="tag">原词朗读 + 中文字幕</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>成片 · 《如梦令 · 常记溪亭日暮》</h2>
+    <p class="sub">李清照｜30.17 秒｜1344×768｜H.264 + AAC｜含 6 句朗读、烧录字幕与程序化古风氛围音乐</p>
+    <div class="card">
+      <video controls preload="metadata" poster="demo/F_sheet.png">
+        <source src="demo/ru-meng-ling-30s.mp4" type="video/mp4">
+        你的浏览器不支持 HTML5 视频，可
+        <a href="demo/ru-meng-ling-30s.mp4">点此下载 MP4</a>。
+      </video>
+      <div class="bar">
+        <span>常记溪亭日暮 → 沉醉不知归路 → 兴尽晚回舟 → 误入藕花深处 → 争渡 → 惊起一滩鸥鹭</span>
+        <span>
+          <a class="btn ghost" href="demo/ru-meng-ling-30s.mp4">下载 MP4 (13 MB)</a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>成片抽帧</h2>
+    <p class="sub">2s / 8s / 14s / 20s / 26s / 29s 六个时间点，可见人物、服装、光色与字幕贯穿一致</p>
+    <figure>
+      <img src="demo/F_sheet.png" alt="《如梦令》成片六帧抽帧拼图，含中文字幕">
+      <figcaption><b>F_sheet.png</b> · 溪亭日暮 → 沉醉忘归 → 兴尽回舟 → 误入荷塘 → 白鹭起飞</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>自动生成的 4 张参考资产</h2>
+    <p class="sub">一张主角三视图 + 三张无人物场景定样图，是整支短片人物与场景不崩的关键</p>
+    <figure>
+      <img src="demo/contact_sheet.png" alt="主角三视图与三张宋韵江南场景定样图拼图">
+      <figcaption><b>contact_sheet.png</b> · 左上：同一人物正面/侧面/背面三视图；其余：临水溪亭、荷塘木舟、开阔浅水</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>全自动流水线</h2>
+    <p class="sub">用户只需要说一句话，中间不打断</p>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>解析与分镜</h3><p>校订原文、判断题材情绪、自动选美学预设，产出六镜分镜表与 spec.json</p></div>
+      <div class="step"><div class="n">02</div><h3>提示词渲染</h3><p>确定性脚本生成 10 条提示词：三视图、3 张场景、Seedance 2.5 完整版与内置后端精简版</p></div>
+      <div class="step"><div class="n">03</div><h3>自动生成资产</h3><p>调用图像模型生成 4 张参考图，自动归位、清理水印</p></div>
+      <div class="step"><div class="n">04</div><h3>自动生成视频</h3><p>4 图作参考 + 六镜提示词；方舟直连 30s 一次直出，或内置后端 2×15s 自动拼接</p></div>
+      <div class="step"><div class="n">05</div><h3>后期合成</h3><p>edge-tts 逐镜朗读、烧录中文字幕、程序化五声音阶配乐、去角标、重编码</p></div>
+      <div class="step"><div class="n">06</div><h3>质检与交付</h3><p>抽帧检查换脸/变形/字幕，如实报告后端限制与瑕疵，交出成片 MP4</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>技术说明</h2>
+    <p class="sub">关于「是不是真 Seedance 2.5」，这里如实写出来</p>
+    <table>
+      <tr><th>火山方舟直连</th><td>真 <code>doubao-seedance-2-5-260628</code>，30 秒一次连贯直出 / 16:9 / 1080p / 4 张 reference_image / 无水印。需自备 <code>ARK_API_KEY</code> 且账户已开通。</td></tr>
+      <tr><th>平台内置后端</th><td>实测落到 <code>minimax-video-h3</code>（不可指定模型）：prompt ≤ 2000 字、单次 4–15 秒、分辨率仅 <code>768P</code>/<code>2K</code>、强制带音频、左上角有角标。技能已自动用精简提示词 + 2×15s + 去角标适配。</td></tr>
+      <tr><th>本页成片</th><td>由内置后端分两段生成后自动拼接，含 6 句朗读、烧录字幕与氛围音乐。<b>不是</b> Seedance 2.5 直出；完整版 30s 提示词已随技能提供，可直接用于即梦 / 方舟控制台。</td></tr>
+      <tr><th>美学约束</th><td>写实电影质感、通透柔亮侧逆光、奶白浅青浅杏衣衫与深橄榄绿环境、不整体染黄、一镜一个主动作、人物为正常人眼不发光、道具静止声明。</td></tr>
+    </table>
+    <p class="note" style="margin-top:18px">
+      <b>提示：</b>本仓库不含任何 API Key、Token 或凭据。文档中出现的所有密钥名称都只是环境变量名或占位符。
+    </p>
+  </section>
+
+  <section>
+    <h2>安装</h2>
+    <p class="sub">把整个技能目录放到 <code>~/.workbuddy/skills/poem-to-seedance-film/</code>，重启 WorkBuddy 即可</p>
+    <p>
+      <a class="btn" href="https://github.com/iithink88/poem-to-seedance-film">查看仓库与 README</a>
+      <a class="btn ghost" href="https://github.com/iithink88/poem-to-seedance-film/blob/main/INSTALL.md">完整中文安装说明</a>
+    </p>
+    <p style="font-size:14px;color:var(--muted);margin-top:14px">
+      Windows 可运行 <code>install.ps1</code>，macOS / Linux 运行 <code>install.sh</code>；脚本会自动备份已有安装并检查依赖。
+    </p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>流程与原始提示词思路来自公众号「挖挖说AI」《实测 Seedance 2.5 制作古诗词 AI 短片，有点浪漫！（附完整提示词）》，版权归原作者所有，此处仅作学习交流引用。Seedance 2.5 规范整理自火山方舟官方文档。演示图片与视频由 AI 模型生成。</p>
+  <p>脚本代码 MIT 许可 · 无商业用途保证 · 生成效果存在抽卡波动</p>
+</footer>
+
+</body>
+</html>
